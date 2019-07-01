@@ -49,8 +49,8 @@ public class EmployeeDAOImpl implements EmployeeDAO
 
 	@Override
 	public List<Employee> getByName(String name) {
-		// return entityManager.createNativeQuery("SELECT * FROM employee WHERE name LIKE ?0", Employee.class)// langsung database
-		return entityManager.createQuery("SELECT e FROM Employee e WHERE e.name LIKE ?0", Employee.class) //menggunakan object
+		return entityManager.createNativeQuery("SELECT * FROM employee WHERE name LIKE ?0", Employee.class)// langsung database
+		//return entityManager.createQuery("SELECT e FROM Employee e WHERE e.name LIKE ?0", Employee.class) //menggunakan object
 		.setParameter(0, "%" + name + "%")
 		.getResultList();
 	}
